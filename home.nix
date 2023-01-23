@@ -192,7 +192,7 @@
       settings = {
         icons = "awesome";
         theme =  {
-          name = "solarized-dark";
+          name = "gruvbox-dark";
           # overrides = {
           #   idle_bg             = "#123456";
           #   idle_fg             = "#abcdef";
