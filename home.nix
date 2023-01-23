@@ -20,6 +20,7 @@
     iwgtk
     blueman
     pamixer
+    pavucontrol
     neofetch
     git
     tig
