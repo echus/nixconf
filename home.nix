@@ -283,6 +283,7 @@
     initExtra = ''
       # Rebind autocomplete/search key
       bindkey "''${key[Up]}" up-line-or-search
+      bindkey "''${key[Down]}" down-line-or-search
 
       # Start sway
       if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
