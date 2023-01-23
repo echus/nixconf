@@ -73,6 +73,9 @@
     extraPortals = with pkgs; [ xdg-desktop-portal-wlr xdg-desktop-portal-gtk ];
   };
 
+  # Enable brightness control via light
+  programs.light.enable = true;
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
