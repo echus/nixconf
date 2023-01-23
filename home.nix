@@ -232,24 +232,25 @@
       };
 
       colors = {
-        foreground = "a0abae";
-        background = "202c3d";
-        regular0   = "202c3d";
-        regular1   = "fe6f70";
-        regular2   = "4eb075";
-        regular3   = "ba9a0a";
-        regular4   = "60a1e6";
-        regular5   = "d285ad";
-        regular6   = "3dae9f";
-        regular7   = "949cbf";
-        bright0    = "00B4D8";
-        bright1    = "ec7f4f";
-        bright2    = "5baf4f";
-        bright3    = "be981f";
-        bright4    = "8599ef";
-        bright5    = "cc82d7";
-        bright6    = "2aacbf";
-        bright7    = "a0abae";
+        # Gruvbox
+        background = "282828";
+        foreground = "ebdbb2";
+        regular0   = "282828";
+        regular1   = "cc241d";
+        regular2   = "98971a";
+        regular3   = "d79921";
+        regular4   = "458588";
+        regular5   = "b16286";
+        regular6   = "689d6a";
+        regular7   = "a89984";
+        bright0    = "928374";
+        bright1    = "fb4934";
+        bright2    = "b8bb26";
+        bright3    = "fabd2f";
+        bright4    = "83a598";
+        bright5    = "d3869b";
+        bright6    = "8ec07c";
+        bright7    = "ebdbb2";
       };
     };
   };
