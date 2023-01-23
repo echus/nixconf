@@ -39,6 +39,14 @@
     blueman
     pamixer
     pavucontrol
+
+    # Fonts
+    noto-fonts
+    noto-fonts-emoji
+    liberation_ttf
+    fira-code
+    fira-code-symbols
+    font-awesome
   ];
 
   home.sessionVariables = {
