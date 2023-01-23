@@ -279,14 +279,8 @@ in
       bindsym $mod+Print exec --no-startup-id grimshot save active ~/screenshots/$(date +%s).png
       bindsym Print exec --no-startup-id grimshot save screen ~/screenshots/$(date +%s).png
 
-      # Start redshift
-      exec_always gammastep -m wayland -l -35.282001:149.128998 -t 6500K:3500K
-
       # Auto tiling
       exec_always --no-startup-id autotiling
-
-      # Start blueman applet
-      exec_always blueman-applet
 
       # Start iwgtk applet
       exec_always iwgtk -i
@@ -705,6 +699,22 @@ in
     color palette-12    72         default
     color palette-13    106        default
   '';
+
+  services.gammastep = {
+    enable = true;
+    latitude = -35.282001;
+    longitude = 149.128998;
+    temperature = {
+      day = 6500;
+      night = 3500;
+    };
+  };
+
+  services.blueman-applet = {
+    enable = true;
+  };
+
+  # TODO: Make iwgtk service and remove from sway config
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
