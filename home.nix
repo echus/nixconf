@@ -192,6 +192,7 @@
         }
         {
           block = "backlight";
+          cycle = [100 50 25 5 25 50];
         }
         {
           block = "battery";
