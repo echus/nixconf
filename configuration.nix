@@ -114,6 +114,7 @@
     mplus-outline-fonts.githubRelease
     dina-font
     proggyfonts
+    font-awesome
   ];
 
   # System profile packages
