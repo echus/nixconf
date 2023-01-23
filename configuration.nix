@@ -79,7 +79,14 @@
 
   # Enable sound
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
+
+  # Enable pipewire (required by xdg-desktop-portal-wlr - errors out without it)
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
 
   # Enable bluetooth
   hardware.bluetooth.enable = true;
