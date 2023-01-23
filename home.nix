@@ -94,13 +94,17 @@
       bars = [
         {
           position = "top";
+          fonts = {
+            names = [ "Fira Code" ];
+            size = 10.0;
+          };
           statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-top.toml";
         }
       ];
 
       fonts = {
         names = [ "Fira Code" ];
-        size = 24.0;
+        size = 10.0;
       };
 
       gaps = {
@@ -137,56 +141,78 @@
   programs.i3status-rust = {
     enable = true;
 
+
     bars.top = {
       blocks = [
-                {
+        {
+          block = "net";
+          format = "{signal_strength} {ssid}";
+        }
+        {
+          block = "disk_space";
+          path = "/";
+          info_type = "used";
+          format = "{icon} {used}/{total}";
+        }
+        {
           block = "cpu";
-          icons_format = " ";
-          format = "CPU: {utilization}";
+          format = "{utilization}";
         }
         {
           block = "memory";
-          format_mem = "MEM: {mem_used_percents}";
+          format_mem = "{mem_used_percents} {mem_used}/{mem_total}";
+          format_swap = "{swap_used_percents}";
           display_type = "memory";
-          icons = false;
+          icons = true;
           clickable = false;
           warning_mem = 80;
           critical_mem = 95;
         }
-        # {
-        #   block = "sound";
-        #   icons_format = " ";
-        #   format = "VOL: {volume}";
-        #   on_click = "pamixer -t";
-        # }
+        {
+          block = "sound";
+          format = "{volume}";
+          # on_click = "pamixer -t";
+        }
+        {
+          block = "backlight";
+        }
         {
           block = "battery";
-          icons_format = " ";
-          format = "BAT: {percentage} {time}";
-          full_format = "BAT: {percentage} ";
+          format = "{percentage} {time}";
+          full_format = "{percentage}";
           full_threshold = 96;
         }
         {
           block = "time";
-          icons_format = " ";
-          format = "%A, %b %_d";
-        }
-        {
-          block = "time";
-          icons_format = " ";
-          format = "%H:%M";
+          format = "%A, %b %_d | %H:%M";
         }
       ];
 
-      # settings = {
-      #   theme = {
-      #     name = "native";
-      #     overrides = {
-      #       idle_bg = theme.background;
-      #       idle_fg = theme.foreground;
-      #     };
-      #   };
-      # };
+      settings = {
+        icons = "awesome";
+        theme =  {
+          name = "solarized-dark";
+          # overrides = {
+          #   idle_bg             = "#123456";
+          #   idle_fg             = "#abcdef";
+          #   alternating_tint_bg = "#ffffff";
+          #   alternating_tint_fg = "#ffffff";
+          #   critical_bg         = "#ffffff";
+          #   critical_fg         = "#ffffff";
+          #   good_bg             = "#ffffff";
+          #   good_fg             = "#ffffff";
+          #   idle_bg             = "#ffffff";
+          #   idle_fg             = "#ffffff";
+          #   info_bg             = "#ffffff";
+          #   info_fg             = "#ffffff";
+          #   separator_bg        = "#ffffff";
+          #   separator_fg        = "#ffffff";
+          #   separator           = "#ffffff";
+          #   warning_bg          = "#ffffff";
+          #   warning_fg          = "#ffffff";
+          # };
+        };
+      };
     };
   };
 
