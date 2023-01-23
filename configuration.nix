@@ -1,8 +1,6 @@
+{ config, pkgs, ... }:
+
 {
-  config,
-  pkgs,
-  ...
-}: {
   imports =
     [
       /etc/nixos/hardware-configuration.nix
@@ -82,6 +80,9 @@
   # Enable sound
   sound.enable = true;
   hardware.pulseaudio.enable = true;
+
+  # Enable bluetooth
+  hardware.bluetooth.enable = true;
 
   # Enable OpenGL
   hardware.opengl = {
