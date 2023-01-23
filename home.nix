@@ -22,8 +22,8 @@ let
   base0D = "#83adad";
   base0E = "#d485ad";
   base0F = "#d65d0e";
-in
 
+in
 {
   nixpkgs.config.allowUnfree = true;
 
@@ -280,6 +280,15 @@ in
 
       # Start redshift
       exec_always gammastep -m wayland -l -35.282001:149.128998 -t 6500K:3500K
+
+      # Auto tiling
+      exec_always --no-startup-id autotiling
+
+      # Start blueman applet
+      exec_always blueman-applet
+
+      # Start iwgtk applet
+      exec_always iwgtk -i
     '';
   };
 
