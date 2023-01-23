@@ -700,15 +700,15 @@ in
     color palette-13    106        default
   '';
 
-  services.gammastep = {
-    enable = true;
-    latitude = -35.282001;
-    longitude = 149.128998;
-    temperature = {
-      day = 6500;
-      night = 3500;
-    };
-  };
+  # services.gammastep = {
+  #   enable = true;
+  #   latitude = -35.282001;
+  #   longitude = 149.128998;
+  #   temperature = {
+  #     day = 6500;
+  #     night = 3500;
+  #   };
+  # };
 
   services.blueman-applet = {
     enable = true;
