@@ -60,6 +60,7 @@ in
     # Hardware control utilities
     iwgtk
     blueman
+    pulseaudio
     pamixer
     pavucontrol
     light # Brightness adjustment
