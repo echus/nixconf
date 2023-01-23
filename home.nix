@@ -278,7 +278,8 @@ in
       bindsym $mod+Print exec --no-startup-id grimshot save active ~/screenshots/$(date +%s).png
       bindsym Print exec --no-startup-id grimshot save screen ~/screenshots/$(date +%s).png
 
-
+      # Start redshift
+      exec_always gammastep -m wayland -l -35.282001:149.128998 -t 6500K:3500K
     '';
   };
 
