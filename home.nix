@@ -7,30 +7,38 @@
   home.homeDirectory = "/home/varvara";
 
   home.packages = with pkgs; [
+    # Command line utilities
+    foot
     oh-my-zsh
     silver-searcher
     fzf
     tmux
-    foot
-    i3status-rust
-    bemenu
-    xwayland
-    gammastep
-    chromium
-    iwgtk
-    blueman
-    pamixer
-    pavucontrol
     neofetch
     git
     tig
+
+    # Programming
     python3
     cmake
     gcc
     gnumake
     nodejs
-    autotiling
+
+    # WM
+    i3status-rust
+    bemenu
+    xwayland
     gammastep
+    autotiling
+
+    # Browsers
+    chromium
+
+    # Hardware control utilities
+    iwgtk
+    blueman
+    pamixer
+    pavucontrol
   ];
 
   home.sessionVariables = {
