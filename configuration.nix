@@ -5,7 +5,7 @@
 }: {
   imports =
     [
-      ./hardware-configuration.nix
+      /etc/nixos/hardware-configuration.nix
       # To use home-manager as a module: <home-manager/nixos>
     ];
 
