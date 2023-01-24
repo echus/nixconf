@@ -485,6 +485,7 @@ in
         "extract"
         "z"
         "terraform"
+        "ssh-agent"
       ];
 
       theme = "blinks";
