@@ -90,6 +90,8 @@ in
     QT_QPA_PLATFORM = "wayland";
     BMENU_BACKEND = "wayland";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = 1;
+    # https://github.com/swaywm/wlroots/issues/2767#issuecomment-859198645
+    WLR_DRM_NO_MODIFIERS=1;
   };
 
   home.pointerCursor = {
