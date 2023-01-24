@@ -232,6 +232,10 @@ in
         size = 10.0;
       };
 
+      focus = {
+        followMouse = "always";
+      };
+
       gaps = {
         inner = 5;
         smartGaps = true;
