@@ -30,6 +30,9 @@
     };
   };
 
+  # Install latest kernel
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   # 12th gen bug fix - see nixos.wiki/Intel_Graphics
   boot.kernelParams = [ "i915.force_probe=46a6" ];
 
