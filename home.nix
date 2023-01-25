@@ -40,7 +40,10 @@ in
     neofetch
     git
     tig
+
+    # File viewers
     feh
+    zathura
 
     # Programming
     python3
@@ -54,12 +57,12 @@ in
     autotiling
     bemenu
     xwayland
-    gammastep
+    gammastep # Service
     sway-contrib.grimshot # Screenshots
 
     # Hardware control utilities
     iwgtk
-    blueman
+    blueman # Service
     pulseaudio
     pamixer
     pavucontrol
