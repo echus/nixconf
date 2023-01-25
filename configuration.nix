@@ -83,6 +83,9 @@
   # Enable sound
   sound.enable = true;
 
+  # Enable udisks to manage mounting/unmounting drives
+  services.udisks2.enable = true;
+
   # Enable pipewire (required by xdg-desktop-portal-wlr - errors out without it)
   services.pipewire = {
     enable = true;
