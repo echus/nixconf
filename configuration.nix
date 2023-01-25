@@ -83,6 +83,9 @@
   # Enable sound
   sound.enable = true;
 
+  # Enable bluetooth
+  services.blueman.enable = true;
+
   # Enable udisks to manage mounting/unmounting drives
   services.udisks2.enable = true;
 
