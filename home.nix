@@ -40,6 +40,7 @@ in
     neofetch
     git
     tig
+    gh
 
     # File viewers
     feh
