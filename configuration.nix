@@ -114,6 +114,9 @@
     ];
   };
 
+  # Enable Docker
+  virtualisation.docker.enable = true;
+
   # User account definition
   users.users.varvara = {
     isNormalUser = true;
@@ -121,6 +124,7 @@
       "wheel"
       "video"
       "audio"
+      "docker"
     ];
     initialPassword = "pw123";
   };
