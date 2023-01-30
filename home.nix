@@ -276,11 +276,13 @@ in
         };
         DP-5 = {
           transform = "90";
-          scale = "1.3";
+          mode = "1920x1080";
+          scale = "1";
         };
         DP-6 = {
           transform = "90";
-          scale = "1.3";
+          scale = "1";
+          mode = "1920x1080";
         };
       };
     };
@@ -395,8 +397,8 @@ in
     settings = {
       main = {
         term = "xterm-256color";
-        font = "Fira Code:size=8";
-        dpi-aware = "yes";
+        font = "Fira Code:size=12";
+        dpi-aware = "no";
       };
 
       mouse = {
