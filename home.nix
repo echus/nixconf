@@ -270,12 +270,19 @@ in
       };
 
       # Display device configuration
-      # output = {
-      #   eDP-1 = {
-      #     # Set HIDP scale (pixel integer scaling)
-      #     scale = "2";
-      #   };
-      # };
+      output = {
+        eDP-1 = {
+          # Internal monitor
+        };
+        DP-5 = {
+          transform = "90";
+          scale = "1.3";
+        };
+        DP-6 = {
+          transform = "90";
+          scale = "1.3";
+        };
+      };
     };
 
     extraConfig = ''
