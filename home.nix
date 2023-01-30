@@ -52,6 +52,7 @@ in
     gcc
     gnumake
     nodejs
+    yarn
 
     # WM
     i3status-rust
@@ -94,6 +95,13 @@ in
     QT_QPA_PLATFORM = "wayland";
     BMENU_BACKEND = "wayland";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = 1;
+
+    # opendata.fit development variables
+    OPENDATAFIT_USERS_SRC          = builtins.getEnv "HOME" + "/development/opendatafit/opendatafit-users";
+    OPENDATAFIT_CONTAINER_BASE_SRC = builtins.getEnv "HOME" + "/development/opendatafit/opendatafit-container-base";
+    OPENDATAFIT_SCHEDULER_SRC      = builtins.getEnv "HOME" + "/development/opendatafit/opendatafit-scheduler";
+    OPENDATAFIT_NOTIFY_SRC         = builtins.getEnv "HOME" + "/development/opendatafit/opendatafit-notify";
+    OPENDATAFIT_STORE_SRC          = builtins.getEnv "HOME" + "/development/opendatafit/opendatafit-store";
   };
 
   home.pointerCursor = {
