@@ -117,6 +117,10 @@
   # Enable Docker
   virtualisation.docker.enable = true;
 
+  # Enable nix-ld for running unpatched dynamic binaries on Nix
+  # (fix missing /lib64/ld-linux-x86-64.so.2 loader error)
+  programs.nix-ld.enable = true;
+
   # User account definition
   users.users.varvara = {
     isNormalUser = true;
