@@ -53,6 +53,7 @@ in
     gnumake
     nodejs
     yarn
+    micromamba
 
     # WM
     i3status-rust
@@ -491,6 +492,9 @@ in
       if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
         exec sway -d &> ~/.sway.log
       fi
+
+      # Initialise micromamba
+      eval "$(micromamba shell hook --shell=zsh)"
     '';
 
     history = {
