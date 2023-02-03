@@ -279,18 +279,13 @@ in
 
       # Display device configuration
       output = {
+        # Internal monitor
         eDP-1 = {
-          # Internal monitor
         };
-        DP-5 = {
-          transform = "90";
-          mode = "1920x1080";
-          scale = "1";
-        };
-        DP-6 = {
-          transform = "90";
-          scale = "1";
-          mode = "1920x1080";
+
+        # Work monitor
+        DP-1 = {
+          # transform = "90";
         };
       };
     };
