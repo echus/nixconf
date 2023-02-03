@@ -54,6 +54,7 @@ in
     nodejs
     yarn
     micromamba
+    meld
 
     # WM
     i3status-rust
