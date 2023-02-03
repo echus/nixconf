@@ -97,6 +97,12 @@ in
     BMENU_BACKEND = "wayland";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = 1;
 
+    # nix-ld setup
+    NIX_LD_LIBRARY_PATH = lib.makeLibraryPath [
+      stdenv.cc.cc
+    ];
+    NIX_LD = lib.fileContents "${stdenv.cc}/nix-support/dynamic-linker";
+
     # opendata.fit development variables
     OPENDATAFIT_USERS_SRC          = builtins.getEnv "HOME" + "/development/opendatafit/opendatafit-users";
     OPENDATAFIT_CONTAINER_BASE_SRC = builtins.getEnv "HOME" + "/development/opendatafit/opendatafit-container-base";
