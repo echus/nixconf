@@ -41,6 +41,8 @@ in
     git
     tig
     gh
+    unzip
+    nix-prefetch-git
 
     # File viewers
     feh
