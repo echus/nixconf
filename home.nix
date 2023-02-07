@@ -18,7 +18,7 @@ let
   # AstroNvim init.lua user config
   astronvimUserConfig = pkgs.writeTextFile {
     name = "init.lua";
-    text = builtins.readFile "${nixconfPath}/configs/init.lua";
+    text = builtins.readFile "${nixconfPath}/configs/astronvim.lua";
   };
 
   # Copy user config into astronvim setup
