@@ -466,7 +466,7 @@ in
         # vim = "nvim";
       };
 
-      initExtra = builtins.readFile "${nixconfPath}/configs/zsh.zshrc";
+      initExtra = builtins.readFile "${nixconfPath}/configs/zshrc";
 
       history = {
         size = 10000;
