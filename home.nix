@@ -445,34 +445,6 @@ in
 
       viAlias = true;
       vimAlias = true;
-
-    # extraConfig = ''
-    #   " auto-install vim-plug
-    #   if empty(glob('~/.config/nvim/autoload/plug.vim'))
-    #     silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    #     autocmd VimEnter * PlugInstall
-    #   endif
-
-    #   " vim-plug plugins
-    #   call plug#begin('~/.config/nvim/plugged')
-    #   Plug 'jeffkreeftmeijer/neovim-sensible'
-    #   Plug 'lervag/vimtex'
-    #   Plug 'hashivim/vim-terraform'
-    #   Plug 'mustache/vim-mustache-handlebars'
-    #   Plug 'arcticicestudio/nord-vim'
-    #   Plug 'tpope/vim-fugitive'
-    #   Plug 'tmhedberg/SimpylFold'
-    #   Plug 'Vimjas/vim-python-pep8-indent'
-    #   Plug 'ycm-core/YouCompleteMe'
-    #   Plug 'vim-syntastic/syntastic'
-    #   Plug 'nvie/vim-flake8'
-    #   Plug 'scrooloose/nerdtree'
-    #   Plug 'ctrlpvim/ctrlp.vim'
-    #   Plug 'joukevandermaas/vim-ember-hbs'
-    #   Plug 'LnL7/vim-nix'
-    #   Plug 'wuelnerdotexe/vim-astro'
-    #   call plug#end()
-    # '';
     };
 
     git = {
