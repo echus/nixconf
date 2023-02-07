@@ -319,29 +319,7 @@ in
       };
     };
 
-    extraConfig = ''
-      set $mod Mod4
-
-      # Use pactl to adjust volume in PulseAudio
-      bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +3%
-      bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -3%
-      bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-
-      # Brightness adjustment
-      bindsym Mod1+minus exec --no-startup-id light -U 3
-      bindsym Mod1+equal exec --no-startup-id light -A 3
-
-      # Screenshots
-      bindsym $mod+Shift+Print exec --no-startup-id grimshot save area ~/screenshots/$(date +%s).png
-      bindsym $mod+Print exec --no-startup-id grimshot save active ~/screenshots/$(date +%s).png
-      bindsym Print exec --no-startup-id grimshot save screen ~/screenshots/$(date +%s).png
-
-      # Auto tiling
-      exec_always --no-startup-id autotiling
-
-      # Start iwgtk applet
-      exec_always iwgtk -i
-    '';
+    extraConfig = builtins.readFile "${nixconfPath}/configs/sway";
   };
 
   programs = {
