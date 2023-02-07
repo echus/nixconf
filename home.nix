@@ -57,9 +57,6 @@ in
   home.homeDirectory = "/home/varvara";
 
   home.packages = with pkgs; [
-    # Run astronvim setup??
-    astronvim
-
     # Command line utilities
     foot
     oh-my-zsh
