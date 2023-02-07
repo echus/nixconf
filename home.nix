@@ -317,438 +317,451 @@ in
     '';
   };
 
-  programs.i3status-rust = {
-    enable = true;
+  programs = {
+    i3status-rust = {
+      enable = true;
 
 
-    bars.top = {
-      blocks = [
-        {
-          block = "net";
-          format = "{signal_strength} {ssid}";
-        }
-        {
-          block = "disk_space";
-          path = "/";
-          info_type = "used";
-          format = "{icon} {used}/{total}";
-        }
-        {
-          block = "cpu";
-          format = "{utilization}";
-        }
-        {
-          block = "memory";
-          format_mem = "{mem_used_percents} {mem_used}/{mem_total}";
-          format_swap = "{swap_used_percents}";
-          display_type = "memory";
-          icons = true;
-          clickable = false;
-          warning_mem = 80;
-          critical_mem = 95;
-        }
-        {
-          block = "sound";
-          format = "{volume}";
-          # on_click = "pamixer -t";
-        }
-        {
-          block = "backlight";
-          cycle = [100 50 25 5 25 50];
-        }
-        {
-          block = "battery";
-          format = "{percentage} {time}";
-          full_format = "{percentage}";
-          full_threshold = 96;
-        }
-        {
-          block = "time";
-          format = "%A, %b %_d | %H:%M";
-        }
-      ];
+      bars.top = {
+        blocks = [
+          {
+            block = "net";
+            format = "{signal_strength} {ssid}";
+          }
+          {
+            block = "disk_space";
+            path = "/";
+            info_type = "used";
+            format = "{icon} {used}/{total}";
+          }
+          {
+            block = "cpu";
+            format = "{utilization}";
+          }
+          {
+            block = "memory";
+            format_mem = "{mem_used_percents} {mem_used}/{mem_total}";
+            format_swap = "{swap_used_percents}";
+            display_type = "memory";
+            icons = true;
+            clickable = false;
+            warning_mem = 80;
+            critical_mem = 95;
+          }
+          {
+            block = "sound";
+            format = "{volume}";
+            # on_click = "pamixer -t";
+          }
+          {
+            block = "backlight";
+            cycle = [100 50 25 5 25 50];
+          }
+          {
+            block = "battery";
+            format = "{percentage} {time}";
+            full_format = "{percentage}";
+            full_threshold = 96;
+          }
+          {
+            block = "time";
+            format = "%A, %b %_d | %H:%M";
+          }
+        ];
 
-      settings = {
-        icons = "awesome";
-        theme =  {
-          name = "gruvbox-dark";
-          # overrides = {
-          #   idle_bg             = "#123456";
-          #   idle_fg             = "#abcdef";
-          #   alternating_tint_bg = "#ffffff";
-          #   alternating_tint_fg = "#ffffff";
-          #   critical_bg         = "#ffffff";
-          #   critical_fg         = "#ffffff";
-          #   good_bg             = "#ffffff";
-          #   good_fg             = "#ffffff";
-          #   idle_bg             = "#ffffff";
-          #   idle_fg             = "#ffffff";
-          #   info_bg             = "#ffffff";
-          #   info_fg             = "#ffffff";
-          #   separator_bg        = "#ffffff";
-          #   separator_fg        = "#ffffff";
-          #   separator           = "#ffffff";
-          #   warning_bg          = "#ffffff";
-          #   warning_fg          = "#ffffff";
-          # };
+        settings = {
+          icons = "awesome";
+          theme =  {
+            name = "gruvbox-dark";
+            # overrides = {
+            #   idle_bg             = "#123456";
+            #   idle_fg             = "#abcdef";
+            #   alternating_tint_bg = "#ffffff";
+            #   alternating_tint_fg = "#ffffff";
+            #   critical_bg         = "#ffffff";
+            #   critical_fg         = "#ffffff";
+            #   good_bg             = "#ffffff";
+            #   good_fg             = "#ffffff";
+            #   idle_bg             = "#ffffff";
+            #   idle_fg             = "#ffffff";
+            #   info_bg             = "#ffffff";
+            #   info_fg             = "#ffffff";
+            #   separator_bg        = "#ffffff";
+            #   separator_fg        = "#ffffff";
+            #   separator           = "#ffffff";
+            #   warning_bg          = "#ffffff";
+            #   warning_fg          = "#ffffff";
+            # };
+          };
         };
       };
     };
-  };
 
-  programs.foot = {
-    enable = true;
-
-    settings = {
-      main = {
-        term = "xterm-256color";
-        font = "Fira Code:size=12";
-        dpi-aware = "no";
-      };
-
-      mouse = {
-        hide-when-typing = "yes";
-      };
-
-      colors = {
-        # Gruvbox
-        background = "282828";
-        foreground = "ebdbb2";
-        regular0   = "282828";
-        regular1   = "cc241d";
-        regular2   = "98971a";
-        regular3   = "d79921";
-        regular4   = "458588";
-        regular5   = "b16286";
-        regular6   = "689d6a";
-        regular7   = "a89984";
-        bright0    = "928374";
-        bright1    = "fb4934";
-        bright2    = "b8bb26";
-        bright3    = "fabd2f";
-        bright4    = "83a598";
-        bright5    = "d3869b";
-        bright6    = "8ec07c";
-        bright7    = "ebdbb2";
-      };
-    };
-  };
-
-  programs.neovim = {
-    enable = true;
-
-    viAlias = true;
-    vimAlias = true;
-
-    extraConfig = ''
-      " auto-install vim-plug
-      if empty(glob('~/.config/nvim/autoload/plug.vim'))
-        silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-        autocmd VimEnter * PlugInstall
-      endif
-
-      " vim-plug plugins
-      call plug#begin('~/.config/nvim/plugged')
-      Plug 'jeffkreeftmeijer/neovim-sensible'
-      Plug 'lervag/vimtex'
-      Plug 'hashivim/vim-terraform'
-      Plug 'mustache/vim-mustache-handlebars'
-      Plug 'arcticicestudio/nord-vim'
-      Plug 'tpope/vim-fugitive'
-      Plug 'tmhedberg/SimpylFold'
-      Plug 'Vimjas/vim-python-pep8-indent'
-      Plug 'ycm-core/YouCompleteMe'
-      Plug 'vim-syntastic/syntastic'
-      Plug 'nvie/vim-flake8'
-      Plug 'scrooloose/nerdtree'
-      Plug 'ctrlpvim/ctrlp.vim'
-      Plug 'joukevandermaas/vim-ember-hbs'
-      Plug 'LnL7/vim-nix'
-      call plug#end()
-    '';
-  };
-
-  programs.git = {
-    enable = true;
-
-    userName = "echus";
-    userEmail = "varvara@echus.co";
-  };
-
-  programs.zsh = {
-    enable = true;
-
-    autocd = true;
-    dotDir = ".config/zsh";
-    enableAutosuggestions = true;
-    enableCompletion = true;
-
-    shellAliases = {
-      # vim = "nvim";
-    };
-
-    initExtra = ''
-      # Rebind autocomplete/search key
-      bindkey "''${key[Up]}" up-line-or-search
-      bindkey "''${key[Down]}" down-line-or-search
-
-      # Start sway
-      if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
-        exec sway -d &> ~/.sway.log
-      fi
-
-      # Initialise micromamba
-      eval "$(micromamba shell hook --shell=zsh)"
-    '';
-
-    history = {
-      size = 10000;
-      path = "${config.xdg.dataHome}/zsh/history";
-    };
-
-    oh-my-zsh = {
+    foot = {
       enable = true;
 
+      settings = {
+        main = {
+          term = "xterm-256color";
+          font = "Fira Code:size=12";
+          dpi-aware = "no";
+        };
+
+        mouse = {
+          hide-when-typing = "yes";
+        };
+
+        colors = {
+          # Gruvbox
+          background = "282828";
+          foreground = "ebdbb2";
+          regular0   = "282828";
+          regular1   = "cc241d";
+          regular2   = "98971a";
+          regular3   = "d79921";
+          regular4   = "458588";
+          regular5   = "b16286";
+          regular6   = "689d6a";
+          regular7   = "a89984";
+          bright0    = "928374";
+          bright1    = "fb4934";
+          bright2    = "b8bb26";
+          bright3    = "fabd2f";
+          bright4    = "83a598";
+          bright5    = "d3869b";
+          bright6    = "8ec07c";
+          bright7    = "ebdbb2";
+        };
+      };
+    };
+
+    neovim = {
+      enable = true;
+
+      viAlias = true;
+      vimAlias = true;
+
+    # extraConfig = ''
+    #   " auto-install vim-plug
+    #   if empty(glob('~/.config/nvim/autoload/plug.vim'))
+    #     silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    #     autocmd VimEnter * PlugInstall
+    #   endif
+
+    #   " vim-plug plugins
+    #   call plug#begin('~/.config/nvim/plugged')
+    #   Plug 'jeffkreeftmeijer/neovim-sensible'
+    #   Plug 'lervag/vimtex'
+    #   Plug 'hashivim/vim-terraform'
+    #   Plug 'mustache/vim-mustache-handlebars'
+    #   Plug 'arcticicestudio/nord-vim'
+    #   Plug 'tpope/vim-fugitive'
+    #   Plug 'tmhedberg/SimpylFold'
+    #   Plug 'Vimjas/vim-python-pep8-indent'
+    #   Plug 'ycm-core/YouCompleteMe'
+    #   Plug 'vim-syntastic/syntastic'
+    #   Plug 'nvie/vim-flake8'
+    #   Plug 'scrooloose/nerdtree'
+    #   Plug 'ctrlpvim/ctrlp.vim'
+    #   Plug 'joukevandermaas/vim-ember-hbs'
+    #   Plug 'LnL7/vim-nix'
+    #   Plug 'wuelnerdotexe/vim-astro'
+    #   call plug#end()
+    # '';
+    };
+
+    git = {
+      enable = true;
+
+      userName = "echus";
+      userEmail = "varvara@echus.co";
+    };
+
+    zsh = {
+      enable = true;
+
+      autocd = true;
+      dotDir = ".config/zsh";
+      enableAutosuggestions = true;
+      enableCompletion = true;
+
+      shellAliases = {
+        # vim = "nvim";
+      };
+
+      initExtra = ''
+        # Rebind autocomplete/search key
+        bindkey "''${key[Up]}" up-line-or-search
+        bindkey "''${key[Down]}" down-line-or-search
+
+        # Start sway
+        if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
+          exec sway -d &> ~/.sway.log
+        fi
+
+        # Initialise micromamba
+        eval "$(micromamba shell hook --shell=zsh)"
+      '';
+
+      history = {
+        size = 10000;
+        path = "${config.xdg.dataHome}/zsh/history";
+      };
+
+      oh-my-zsh = {
+        enable = true;
+
+        plugins = [
+          "git"
+          "node"
+          "npm"
+          "extract"
+          "z"
+          "terraform"
+          "ssh-agent"
+        ];
+
+        theme = "blinks";
+      };
+    };
+
+    fzf = {
+      enable = true;
+
+      enableZshIntegration = true;
+    };
+
+    tmux = {
+      enable = true;
+
+      clock24 = true;
+      baseIndex = 1;
+      keyMode = "vi";
+
       plugins = [
-        "git"
-        "node"
-        "npm"
-        "extract"
-        "z"
-        "terraform"
-        "ssh-agent"
+        pkgs.tmuxPlugins.gruvbox
+        pkgs.tmuxPlugins.resurrect
+        pkgs.tmuxPlugins.continuum
+        pkgs.tmuxPlugins.copycat
+        pkgs.tmuxPlugins.sensible
       ];
 
-      theme = "blinks";
+      extraConfig = ''
+        # Move status bar to top
+        set-option -g status-position top
+
+        # Automatically set window title
+        set-window-option -g automatic-rename on
+        set-option -g set-titles on
+
+        set -g status-keys vi
+        set -g history-limit 10000
+
+        setw -g mode-keys vi
+        setw -g mouse on
+        setw -g monitor-activity on
+
+        bind-key v split-window -h
+        bind-key s split-window -v
+
+        bind-key J resize-pane -D 5
+        bind-key K resize-pane -U 5
+        bind-key H resize-pane -L 5
+        bind-key L resize-pane -R 5
+
+        bind-key M-j resize-pane -D
+        bind-key M-k resize-pane -U
+        bind-key M-h resize-pane -L
+        bind-key M-l resize-pane -R
+
+        # Vim style pane selection
+        bind h select-pane -L
+        bind j select-pane -D 
+        bind k select-pane -U
+        bind l select-pane -R
+
+        # Use Alt-vim keys without prefix key to switch panes
+        bind -n M-h select-pane -L
+        bind -n M-j select-pane -D 
+        bind -n M-k select-pane -U
+        bind -n M-l select-pane -R
+
+        # Use Alt-arrow keys without prefix key to switch panes
+        bind -n M-Left select-pane -L
+        bind -n M-Right select-pane -R
+        bind -n M-Up select-pane -U
+        bind -n M-Down select-pane -D
+
+        # Shift arrow to switch windows
+        bind -n S-Left  previous-window
+        bind -n S-Right next-window
+
+        # No delay for escape key press
+        set -sg escape-time 0
+
+        # Shortcut to reload tmux config
+        bind r source-file ~/.tmux.conf
+
+        # Open new sessions at current path
+        bind c new-window -c "#{pane_current_path}"
+        bind '"' split-window -c "#{pane_current_path}"
+        bind % split-window -h -c "#{pane_current_path}"
+
+        # Enable continuum/resurrect auto session restore
+        set -g @continuum-restore 'off'
+
+        # Disable copy on mouse release
+        unbind -T copy-mode-vi MouseDragEnd1Pane
+
+        # Vim style copying
+        bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "xsel -i -p && xsel -o -p | xsel -i -b"
+        bind-key p run "xsel -o | tmux load-buffer - ; tmux paste-buffer"
+
+        # Swap window
+        bind-key S-Left swap-window -t -1
+        bind-key S-Right swap-window -t +1
+      '';
     };
   };
 
-  programs.fzf = {
-    enable = true;
 
-    enableZshIntegration = true;
+  services = {
+    # TODO: Make iwgtk service and remove from sway config
+
+    gammastep = {
+      enable = true;
+      latitude = -35.282001;
+      longitude = 149.128998;
+      temperature = {
+        day = 6500;
+        night = 3500;
+      };
+    };
+
+    blueman-applet = {
+      enable = true;
+    };
   };
 
-  programs.tmux = {
-    enable = true;
 
-    clock24 = true;
-    baseIndex = 1;
-    keyMode = "vi";
+  home.file = {
+    # tig
+    ".tigrc".text = ''
+      # gruvbox theme for tig
+      # https://github.com/ninjabreakbot/tig-gruvbox/blob/main/tigrc
 
-    plugins = [
-      pkgs.tmuxPlugins.gruvbox
-      pkgs.tmuxPlugins.resurrect
-      pkgs.tmuxPlugins.continuum
-      pkgs.tmuxPlugins.copycat
-      pkgs.tmuxPlugins.sensible
-    ];
+      # tig settings
+      set main-view-date = custom
+      set main-view-date-format = "%Y-%m-%d"
+      set main-view = date:relative author:full commit-title:graph=true,refs=true
+      set diff-view = line-number:display=false text:commit-title-overflow=true
+      set diff-options = --pretty=short
+      set vertical-split = false
+      set git-colors = no
+      set truncation-delimiter  = ~   # Character drawn for truncations, or "utf-8"
+# General colors
+      color default                       246         235
+      color cursor                        223         236
+      color status                        default     default
+      color title-focus                   default     default
+      color title-blur                    default     default
+      color delimiter                     245         default
+      color header                        66          default         bold
+      color section                       172         default
+      color line-number                   241         default
+      color id                            124         default
+      color date                          172         default
+      color author                        109         default
+      color mode                          166         default
+      color overflow                      241         default
+      color directory                     106         default         bold
+      color file                          223         default
+      color file-size                     default     default
+      color grep.file                     166         default
 
-    extraConfig = ''
-      # Move status bar to top
-      set-option -g status-position top
+      # Main view colors
+      color main.cursor                   223            236
+      color graph-commit                  166         default
+      color main-head                     166         default         bold
+      color main-remote                   172         default
+      color main-tracked                  132         default
+      color main-tag                      223         default
+      color main-local-tag                106         default
+      color main-ref                      72          default
 
-      # Automatically set window title
-      set-window-option -g automatic-rename on
-      set-option -g set-titles on
+      # Status view colors
+      color status.header                 172         236             bold
+      color status.section                214         default
+      color stat-staged                   106         default
+      color stat-unstaged                 124         default
+      color stat-untracked                166         default
+      color stat-none                     default     default
 
-      set -g status-keys vi
-      set -g history-limit 10000
+      # Help view colors
+      color help.header                   241         default         bold
+      color help.section                  166         default
+      color help.cursor                   72          236
+      color help-group                    166         default
+      color help-action                   166         default
 
-      setw -g mode-keys vi
-      setw -g mouse on
-      setw -g monitor-activity on
+      # Diff view colors
+      color "commit "                     default     default
+      color "Refs: "                      default     default
+      color "Author: "                    default     default
+      color "AuthorDate: "                default     default
+      color "Commit: "                    106         default color "CommitDate: "                66          default color "Merge: "                     default     default color "---"                         167         default color "+++ "                        142         default
+      color "--- "                        167         default
+      color diff-index                    default     default
+      color diff-stat                     223         default
+      color diff-add                      142         default
+      color diff-add-highlight            106         default
+      color diff-del                      167         default
+      color diff-del-highlight            223         default
+      color diff-header                   132         default
+      color diff-chunk                    109         default
+      color "diff-tree "                  214         default
+      color "TaggerDate: "                default     default
 
-      bind-key v split-window -h
-      bind-key s split-window -v
+      # Log view colors
+      color "Date: "                      72          default
 
-      bind-key J resize-pane -D 5
-      bind-key K resize-pane -U 5
-      bind-key H resize-pane -L 5
-      bind-key L resize-pane -R 5
+      # Signature colors
+      color "gpg: "                       72          default
+      color "Primary key fingerprint: "   72          default
 
-      bind-key M-j resize-pane -D
-      bind-key M-k resize-pane -U
-      bind-key M-h resize-pane -L
-      bind-key M-l resize-pane -R
+      # grep view
+      color grep.file                     208         default         bold
+      color grep.line-number              241         default         bold
+      color grep.delimiter                241         default         bold
+      color delimiter                     142         default         bold
 
-      # Vim style pane selection
-      bind h select-pane -L
-      bind j select-pane -D 
-      bind k select-pane -U
-      bind l select-pane -R
-
-      # Use Alt-vim keys without prefix key to switch panes
-      bind -n M-h select-pane -L
-      bind -n M-j select-pane -D 
-      bind -n M-k select-pane -U
-      bind -n M-l select-pane -R
-
-      # Use Alt-arrow keys without prefix key to switch panes
-      bind -n M-Left select-pane -L
-      bind -n M-Right select-pane -R
-      bind -n M-Up select-pane -U
-      bind -n M-Down select-pane -D
-
-      # Shift arrow to switch windows
-      bind -n S-Left  previous-window
-      bind -n S-Right next-window
-
-      # No delay for escape key press
-      set -sg escape-time 0
-
-      # Shortcut to reload tmux config
-      bind r source-file ~/.tmux.conf
-
-      # Open new sessions at current path
-      bind c new-window -c "#{pane_current_path}"
-      bind '"' split-window -c "#{pane_current_path}"
-      bind % split-window -h -c "#{pane_current_path}"
-
-      # Enable continuum/resurrect auto session restore
-      set -g @continuum-restore 'off'
-
-      # Disable copy on mouse release
-      unbind -T copy-mode-vi MouseDragEnd1Pane
-
-      # Vim style copying
-      bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "xsel -i -p && xsel -o -p | xsel -i -b"
-      bind-key p run "xsel -o | tmux load-buffer - ; tmux paste-buffer"
-
-      # Swap window
-      bind-key S-Left swap-window -t -1
-      bind-key S-Right swap-window -t +1
+      # lines in digraph
+      color palette-0     166        default          bold
+      color palette-1     66         default          bold
+      color palette-2     172        default          bold
+      color palette-3     132        default          bold
+      color palette-4     72         default          bold
+      color palette-5     106        default          bold
+      color palette-6     124        default          bold
+      color palette-7     250        default          bold
+      # repeat
+      color palette-8     166        default
+      color palette-9     66         default
+      color palette-10    172        default
+      color palette-11    132        default
+      color palette-12    72         default
+      color palette-13    106        default
     '';
-  };
 
-  # tig
-  home.file.".tigrc".text = ''
-    # gruvbox theme for tig
-    # https://github.com/ninjabreakbot/tig-gruvbox/blob/main/tigrc
-
-    # tig settings
-    set main-view-date = custom
-    set main-view-date-format = "%Y-%m-%d"
-    set main-view = date:relative author:full commit-title:graph=true,refs=true
-    set diff-view = line-number:display=false text:commit-title-overflow=true
-    set diff-options = --pretty=short
-    set vertical-split = false
-    set git-colors = no
-    set truncation-delimiter  = ~   # Character drawn for truncations, or "utf-8"
-
-    # General colors
-    color default                       246         235
-    color cursor                        223         236
-    color status                        default     default
-    color title-focus                   default     default
-    color title-blur                    default     default
-    color delimiter                     245         default
-    color header                        66          default         bold
-    color section                       172         default
-    color line-number                   241         default
-    color id                            124         default
-    color date                          172         default
-    color author                        109         default
-    color mode                          166         default
-    color overflow                      241         default
-    color directory                     106         default         bold
-    color file                          223         default
-    color file-size                     default     default
-    color grep.file                     166         default
-
-    # Main view colors
-    color main.cursor                   223            236
-    color graph-commit                  166         default
-    color main-head                     166         default         bold
-    color main-remote                   172         default
-    color main-tracked                  132         default
-    color main-tag                      223         default
-    color main-local-tag                106         default
-    color main-ref                      72          default
-
-    # Status view colors
-    color status.header                 172         236             bold
-    color status.section                214         default
-    color stat-staged                   106         default
-    color stat-unstaged                 124         default
-    color stat-untracked                166         default
-    color stat-none                     default     default
-
-    # Help view colors
-    color help.header                   241         default         bold
-    color help.section                  166         default
-    color help.cursor                   72          236
-    color help-group                    166         default
-    color help-action                   166         default
-
-    # Diff view colors
-    color "commit "                     default     default
-    color "Refs: "                      default     default
-    color "Author: "                    default     default
-    color "AuthorDate: "                default     default
-    color "Commit: "                    106         default
-    color "CommitDate: "                66          default
-    color "Merge: "                     default     default
-    color "---"                         167         default
-    color "+++ "                        142         default
-    color "--- "                        167         default
-    color diff-index                    default     default
-    color diff-stat                     223         default
-    color diff-add                      142         default
-    color diff-add-highlight            106         default
-    color diff-del                      167         default
-    color diff-del-highlight            223         default
-    color diff-header                   132         default
-    color diff-chunk                    109         default
-    color "diff-tree "                  214         default
-    color "TaggerDate: "                default     default
-
-    # Log view colors
-    color "Date: "                      72          default
-
-    # Signature colors
-    color "gpg: "                       72          default
-    color "Primary key fingerprint: "   72          default
-
-    # grep view
-    color grep.file                     208         default         bold
-    color grep.line-number              241         default         bold
-    color grep.delimiter                241         default         bold
-    color delimiter                     142         default         bold
-
-    # lines in digraph
-    color palette-0     166        default          bold
-    color palette-1     66         default          bold
-    color palette-2     172        default          bold
-    color palette-3     132        default          bold
-    color palette-4     72         default          bold
-    color palette-5     106        default          bold
-    color palette-6     124        default          bold
-    color palette-7     250        default          bold
-    # repeat
-    color palette-8     166        default
-    color palette-9     66         default
-    color palette-10    172        default
-    color palette-11    132        default
-    color palette-12    72         default
-    color palette-13    106        default
-  '';
-
-  services.gammastep = {
-    enable = true;
-    latitude = -35.282001;
-    longitude = 149.128998;
-    temperature = {
-      day = 6500;
-      night = 3500;
+    # AstroNvim
+    ".config/nvim".target = ".config/nvim";
+    ".config/nvim".source = pkgs.fetchFromGitHub {
+      owner = "AstroNvim";
+      repo = "AstroNvim";
+      rev = "4f4269d174d85df8b278a6e09d05daeef840df4a";
+      sha256 = "0cknamcvw7il7fbndaj9dc6g66fj32aby87iqx8akr6nl83sp4ky";
     };
   };
-
-  services.blueman-applet = {
-    enable = true;
-  };
-
-  # TODO: Make iwgtk service and remove from sway config
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
@@ -762,4 +775,4 @@ in
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-  }
+}
