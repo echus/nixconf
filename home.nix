@@ -338,6 +338,10 @@ in
             path = "/";
             info_type = "used";
             format = "{icon} {used}/{total}";
+            alert_absolute = true;
+            unit = "GB";
+            alert = 850;
+            warning = 750;
           }
           {
             block = "cpu";
