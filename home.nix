@@ -76,6 +76,8 @@ in
 
     # Programming
     python3
+    virtualenv
+    pdm
     cmake
     gcc
     gnumake
