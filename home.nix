@@ -134,11 +134,11 @@ in
     NIX_LD = lib.fileContents "${stdenv.cc}/nix-support/dynamic-linker";
 
     # opendata.fit development variables
-    OPENDATAFIT_USERS_SRC          = builtins.getEnv "HOME" + "/development/opendatafit/opendatafit-users";
-    OPENDATAFIT_CONTAINER_BASE_SRC = builtins.getEnv "HOME" + "/development/opendatafit/opendatafit-container-base";
-    OPENDATAFIT_SCHEDULER_SRC      = builtins.getEnv "HOME" + "/development/opendatafit/opendatafit-scheduler";
-    OPENDATAFIT_NOTIFY_SRC         = builtins.getEnv "HOME" + "/development/opendatafit/opendatafit-notify";
-    OPENDATAFIT_STORE_SRC          = builtins.getEnv "HOME" + "/development/opendatafit/opendatafit-store";
+    ODF_USERS_SRC          = builtins.getEnv "HOME" + "/development/opendatafit/app/users";
+    ODF_EXECUTION_BASE_SRC = builtins.getEnv "HOME" + "/development/opendatafit/app/execution-base";
+    ODF_SCHEDULER_SRC      = builtins.getEnv "HOME" + "/development/opendatafit/app/scheduler";
+    ODF_JOBJOCKEY_SRC      = builtins.getEnv "HOME" + "/development/opendatafit/app/jobjockey";
+    ODF_STORE_SRC          = builtins.getEnv "HOME" + "/development/opendatafit/app/store";
   };
 
   home.pointerCursor = {
