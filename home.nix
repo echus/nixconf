@@ -76,8 +76,6 @@ in
 
     # Programming
     python3
-    virtualenv
-    pdm
     cmake
     gcc
     gnumake
@@ -85,6 +83,7 @@ in
     yarn
     micromamba
     meld
+    any-nix-shell
 
     # WM
     i3status-rust

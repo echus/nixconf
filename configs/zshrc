@@ -9,3 +9,6 @@ fi
 
 # Initialise micromamba
 eval "$(micromamba shell hook --shell=zsh)"
+
+# Initialise any-nix-shell
+any-nix-shell zsh --info-right | source /dev/stdin
